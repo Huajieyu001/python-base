@@ -31,6 +31,9 @@ class Person:
     def toString(self):
         return str(self.name) + "," + str(self.age) + "," + str(self.gender)
 
+    # 类方法
+    # def
+
 # 创建实例
 obj1 = Person("zhangsan", 21, "Male")
 obj2 = Person("lisi", 22, "Female")
@@ -55,3 +58,8 @@ print(Person.planet)
 obj1.max_age = 0
 print(obj1.max_age) # 通过实例.变量的方式修改类属性，只对实例自身有用，不会影响到类
 print(Person.max_age)
+
+# 通过实例调用实例方法
+print(obj1.getName())
+# 通过类调用实例方法
+print(Person.getName(obj1))
