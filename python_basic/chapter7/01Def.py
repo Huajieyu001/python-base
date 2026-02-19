@@ -61,5 +61,5 @@ print(Person.max_age)
 
 # 通过实例调用实例方法
 print(obj1.getName())
-# 通过类调用实例方法
+# 通过类调用实例方法，通过类调用时，self需要自己传入实例对象，如果通过实例对象调用则无需自行传入self
 print(Person.getName(obj1))
