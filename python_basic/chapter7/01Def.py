@@ -31,8 +31,33 @@ class Person:
     def toString(self):
         return str(self.name) + "," + str(self.age) + "," + str(self.gender)
 
-    # 类方法
-    # def
+    # 类方法（使用@classmethod注解即可）
+    @classmethod
+    def test1(cls):
+        print('This is test1')
+        print(cls)
+        print(type(cls))
+
+    @classmethod
+    def test2(cls, data):
+        print('This is test2')
+        print(f'your data is {data}')
+
+    @classmethod
+    def setMaxAge(cls, age):
+        cls.max_age = age
+
+    @classmethod
+    def getMaxAge(cls):
+        return cls.max_age
+
+    @classmethod
+    def setPlanet(cls, planet):
+        cls.planet = planet
+
+    @classmethod
+    def getPlanet(cls):
+        return cls.planet
 
 # 创建实例
 obj1 = Person("zhangsan", 21, "Male")
@@ -63,3 +88,7 @@ print(Person.max_age)
 print(obj1.getName())
 # 通过类调用实例方法，通过类调用时，self需要自己传入实例对象，如果通过实例对象调用则无需自行传入self
 print(Person.getName(obj1))
+# 调用类方法
+Person.test1()
+Person.test2(45)
+obj1.test1() # 通过实例调用类方法也没问题
