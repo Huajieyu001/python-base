@@ -59,6 +59,12 @@ class Person:
     def getPlanet(cls):
         return cls.planet
 
+    @classmethod
+    def create(cls, info):
+        name, age, gender = info.split('-')
+        age = int(age)
+        return Person(name, age, gender)
+
 # 创建实例
 obj1 = Person("zhangsan", 21, "Male")
 obj2 = Person("lisi", 22, "Female")
@@ -92,3 +98,9 @@ print(Person.getName(obj1))
 Person.test1()
 Person.test2(45)
 obj1.test1() # 通过实例调用类方法也没问题
+print('-' * 30)
+# 使用工厂方法
+p = Person.create('zhangsan-18-male')
+print(p.getName())
+print(p.getAge())
+print(p.getGender())
