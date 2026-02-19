@@ -1,5 +1,9 @@
 class Person:
 
+    # 类属性
+    max_age = 120
+    planet = 'Earth'
+
     # 构造方法
     def __init__(self, name, age, gender):
         self.name = name
@@ -41,3 +45,13 @@ print(obj1.getGender())
 print(obj1.__dict__)
 # 获取类的所有属性
 print(Person.__dict__)
+print(Person.max_age)
+print(Person.planet)
+Person.max_age = 100
+Person.planet = 'Mars'
+print(Person.max_age)
+print(Person.planet)
+
+obj1.max_age = 0
+print(obj1.max_age) # 通过实例.变量的方式修改类属性，只对实例自身有用，不会影响到类
+print(Person.max_age)
