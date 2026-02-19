@@ -65,6 +65,10 @@ class Person:
         age = int(age)
         return Person(name, age, gender)
 
+    @staticmethod
+    def getInfo():
+        print('this is a static method')
+
 # 创建实例
 obj1 = Person("zhangsan", 21, "Male")
 obj2 = Person("lisi", 22, "Female")
@@ -104,3 +108,6 @@ p = Person.create('zhangsan-18-male')
 print(p.getName())
 print(p.getAge())
 print(p.getGender())
+
+Person.getInfo()
+obj1.getInfo()
