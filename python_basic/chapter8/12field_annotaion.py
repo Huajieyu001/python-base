@@ -63,12 +63,14 @@ print(tuple2)
 tuple3: tuple[str | int, ...] = ('Haha', 'sadf', 888, 'hello')
 print(tuple3)
 
+
 class Animal:
     pass
 
+
 # 变量也可以指定类的类型
 obj: Animal
-obj = 5 # warn
+obj = 5  # warn
 obj = Animal()
 
 # 普通变量：自动推断类型是int，但后续修改不会警告
@@ -80,5 +82,52 @@ print(x)
 # 容器变量：自动推断类型是list[int]，后续修改会警告
 list0 = [1, 2, 3]
 print(list0)
-list0.append('888') # warn
+list0.append('888')  # warn
 print(list0)
+
+
+#################################################################
+
+
+def add(a: int, b: int) -> int:
+    return a + b
+
+
+def sayHello(message: str) -> None:
+    print(message)
+
+
+print(add(10, 20))
+print(add('Hahahaha', 'hello'))  # warn
+sayHello('Haha')
+
+
+# 参数有默认值的情况下，是能够自动推导出类型的，可以不写，下面的a和b都是会有提示
+def sub(a: int = 0, b=0) -> int:
+    return a - b
+
+
+print(sub(10, 5))
+# print(sub('sadfsdg', '5sd')) # warn
+
+# 多个返回值的类型注解
+def guess() -> tuple[str | int, ...]:
+    return 'dsf', 465
+
+a, b = guess()
+print(a, b)
+
+# 设置*args的类型
+
+def length(*args: int) -> int:
+    return len(args)
+
+print(length(1, 54, 8))
+
+# 设置**kwargs的类型
+def avgScore(**kwargs: int | str) -> int:
+    return len(kwargs)
+
+
+# 获取函数的注解信息
+print(avgScore.__annotations__)
